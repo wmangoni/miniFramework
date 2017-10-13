@@ -1,16 +1,15 @@
-<?php
+<?phps
+// $key = isset($_GET['key']) ? $_GET['key'] : 'Home/index';
 
-$key = isset($_GET['key']) ? $_GET['key'] : 'Home/index';
+// $url_parse = explode('/', $key);
 
-$url_parse = explode('/', $key);
+// $controller = $url_parse[0].'Controller';
 
-$controller = $url_parse[0].'Controller';
+// $method = isset($url_parse[1]) ? $url_parse[1] : 'index';
+require_once 'bootstrap/Bootstrap.php';
 
-$method = isset($url_parse[1]) ? $url_parse[1] : 'index';
+use App\System;
 
-require_once('app/controllers/' . $controller . '.php');
+$system = new System();
 
-use App\Controllers;
-
-$controller = new $controller();
-$controller->$method();
+$system->Run();
